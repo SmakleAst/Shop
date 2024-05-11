@@ -7,7 +7,7 @@ namespace Shop.Application.Products.Commands.DeleteProduct
         public DeleteProductCommandValidator()
         {
             RuleFor(deleteNoteCommand => deleteNoteCommand.ProductId)
-                .GreaterThan(0).WithMessage("Id товара не может быть меньше и равно 0.")
+                .GreaterThan(0).WithMessage("Id товара не может быть меньше или равно 0.")
                 .NotNull().WithMessage("Id товара не может быть пустым.");
         }
     }
