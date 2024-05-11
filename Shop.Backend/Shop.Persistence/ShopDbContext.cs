@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Shop.Application.Interfaces;
 using Shop.Domain;
 using Shop.Persistence.EntityTypeConfigurations;
 
