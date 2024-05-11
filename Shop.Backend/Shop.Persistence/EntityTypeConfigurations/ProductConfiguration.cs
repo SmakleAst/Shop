@@ -10,6 +10,7 @@ namespace Shop.Persistence.EntityTypeConfigurations
         {
             builder.HasKey(product => product.ProductId);
             builder.HasIndex(product => product.ProductId).IsUnique();
+            builder.Property(product => product.ProductId).ValueGeneratedOnAdd();
             builder.Property(product => product.Name).HasMaxLength(50);
             builder.Property(product => product.Description).HasMaxLength(250);
             builder.Property(product => product.Price).HasPrecision(16, 2);
