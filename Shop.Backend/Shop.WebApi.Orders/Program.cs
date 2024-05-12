@@ -3,6 +3,7 @@ using Shop.Application.Interfaces;
 using System.Reflection;
 using Shop.Application;
 using Shop.Persistence;
+using Shop.WebApi.Orders.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
