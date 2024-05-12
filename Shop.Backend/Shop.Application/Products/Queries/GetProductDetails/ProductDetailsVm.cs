@@ -6,7 +6,7 @@ namespace Shop.Application.Products.Queries.GetProductDetails
 {
     public class ProductDetailsVm : IMapWith<Product>
     {
-        public int ProductId { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }

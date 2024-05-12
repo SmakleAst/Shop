@@ -6,7 +6,7 @@ namespace Shop.Application.Products.Commands.UpdateProduct
     {
         public UpdateProductCommandValidator()
         {
-            RuleFor(updateProductCommand => updateProductCommand.ProductId)
+            RuleFor(updateProductCommand => updateProductCommand.Id)
                 .GreaterThan(0).WithMessage("Id товара не может быть меньше или равно 0.")
                 .NotNull().WithMessage("Id товара не может быть пустым.");
 

@@ -16,8 +16,8 @@ namespace Shop.Application.Products.Commands.UpdateProduct
         public async Task<Unit> Handle(UpdateProductCommand request, CancellationToken cancellationToken)
         {
             var product = await _dbContext.Products
-                .FirstOrDefaultAsync(product => product.ProductId == request.ProductId, cancellationToken)
-                ?? throw new NotFoundException(nameof(Product), request.ProductId);
+                .FirstOrDefaultAsync(product => product.Id == request.Id, cancellationToken)
+                ?? throw new NotFoundException(nameof(Product), request.Id);
 
             product.Name = request.Name;
             product.Description = request.Description;

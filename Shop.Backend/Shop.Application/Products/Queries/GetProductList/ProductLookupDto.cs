@@ -6,7 +6,7 @@ namespace Shop.Application.Products.Queries.GetProductList
 {
     public class ProductLookupDto : IMapWith<Product>
     {
-        public int ProductId { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }
@@ -15,8 +15,8 @@ namespace Shop.Application.Products.Queries.GetProductList
         public void Mapping(Profile profile)
         {
             profile.CreateMap<Product, ProductLookupDto>()
-                .ForMember(productDto => productDto.ProductId,
-                    opt => opt.MapFrom(product => product.ProductId))
+                .ForMember(productDto => productDto.Id,
+                    opt => opt.MapFrom(product => product.Id))
                 .ForMember(productDto => productDto.Name,
                     opt => opt.MapFrom(product => product.Name))
                 .ForMember(productDto => productDto.Description,

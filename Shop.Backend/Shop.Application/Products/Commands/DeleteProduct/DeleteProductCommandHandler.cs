@@ -16,8 +16,8 @@ namespace Shop.Application.Products.Commands.DeleteProduct
         public async Task<Unit> Handle(DeleteProductCommand request, CancellationToken cancellationToken)
         {
             var product = await _dbContext.Products
-                .FirstOrDefaultAsync(product => product.ProductId == request.ProductId , cancellationToken)
-                ?? throw new NotFoundException(nameof(Product), request.ProductId);
+                .FirstOrDefaultAsync(product => product.Id == request.Id , cancellationToken)
+                ?? throw new NotFoundException(nameof(Product), request.Id);
 
             _dbContext.Products.Remove(product);
             await _dbContext.SaveChangesAsync(cancellationToken);

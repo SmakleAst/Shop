@@ -18,8 +18,8 @@ namespace Shop.Application.Products.Queries.GetProductDetails
         public async Task<ProductDetailsVm> Handle(GetProductDetailsQuery request, CancellationToken cancellationToken)
         {
             var product = await _dbContext.Products
-                .FirstOrDefaultAsync(product => product.ProductId == request.ProductId, cancellationToken)
-                ?? throw new NotFoundException(nameof(Product), request.ProductId);
+                .FirstOrDefaultAsync(product => product.Id == request.Id, cancellationToken)
+                ?? throw new NotFoundException(nameof(Product), request.Id);
 
             return _mapper.Map<ProductDetailsVm>(product);
         }

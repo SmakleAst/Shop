@@ -26,7 +26,7 @@ namespace Shop.Application.Products.Commands.CreateProduct
             await _dbContext.Products.AddAsync(product, cancellationToken);
             await _dbContext.SaveChangesAsync(cancellationToken);
 
-            return product.ProductId;
+            return product.Id;
         }
     }
 }
