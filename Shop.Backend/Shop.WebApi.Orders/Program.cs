@@ -1,11 +1,34 @@
+using Shop.Application.Common.Mappings;
+using Shop.Application.Interfaces;
+using System.Reflection;
+using Shop.Application;
+using Shop.Persistence;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddAutoMapper(config =>
+{
+    config.AddProfile(new AssemblyMappingProfile(Assembly.GetExecutingAssembly()));
+    config.AddProfile(new AssemblyMappingProfile(typeof(IShopDbContext).Assembly));
+});
+
+builder.Services.AddApplication();
+builder.Services.AddPersistence(builder.Configuration);
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyHeader();
+        policy.AllowAnyMethod();
+        policy.AllowAnyOrigin();
+    });
+});
 
 var app = builder.Build();
 
@@ -16,8 +39,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCustomExceptionHandler();
+app.UseRouting();
 app.UseHttpsRedirection();
-
+app.UseCors("AllowAll");
 app.UseAuthorization();
 
 app.MapControllers();
