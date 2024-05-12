@@ -8,9 +8,9 @@ namespace Shop.Persistence.EntityTypeConfigurations
     {
         public void Configure(EntityTypeBuilder<OrderItem> builder)
         {
-            builder.HasKey(orderItem => orderItem.OrderItemId);
-            builder.HasIndex(orderItem => orderItem.OrderItemId).IsUnique();
-            builder.Property(orderItem => orderItem.OrderItemId).ValueGeneratedOnAdd();
+            builder.HasKey(orderItem => orderItem.Id);
+            builder.HasIndex(orderItem => orderItem.Id).IsUnique();
+            builder.Property(orderItem => orderItem.Id).ValueGeneratedOnAdd();
             builder.Property(orderItem => orderItem.Price).HasPrecision(16, 2);
             builder.Property(orderItem => orderItem.TotalPrice).HasPrecision(16, 2);
 
