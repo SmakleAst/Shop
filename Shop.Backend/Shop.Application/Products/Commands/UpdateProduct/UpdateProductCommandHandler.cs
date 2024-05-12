@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.EntityFrameworkCore;
 using Shop.Application.Common.Exceptions;
 using Shop.Application.Interfaces;
 using Shop.Domain;
@@ -15,7 +16,7 @@ namespace Shop.Application.Products.Commands.UpdateProduct
         public async Task<Unit> Handle(UpdateProductCommand request, CancellationToken cancellationToken)
         {
             var product = await _dbContext.Products
-                .FindAsync(new object[] { request.ProductId }, cancellationToken)
+                .FirstOrDefaultAsync(product => product.ProductId == request.ProductId, cancellationToken)
                 ?? throw new NotFoundException(nameof(Product), request.ProductId);
 
             product.Name = request.Name;
