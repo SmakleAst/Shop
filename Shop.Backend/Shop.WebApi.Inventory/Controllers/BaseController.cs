@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Shop.WebApi.Orders.Controllers
+namespace Shop.WebApi.Inventory.Controllers
 {
     [ApiController]
     [Route("api/[controller]/[action]")]

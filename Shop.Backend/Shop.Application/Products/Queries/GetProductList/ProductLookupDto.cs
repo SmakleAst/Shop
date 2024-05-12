@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Shop.Application.Common.Mappings;
-using Shop.Domain;
+using Shop.Domain.Entities;
 
 namespace Shop.Application.Products.Queries.GetProductList
 {

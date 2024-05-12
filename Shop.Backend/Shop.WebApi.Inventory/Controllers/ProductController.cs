@@ -5,8 +5,9 @@ using Shop.Application.Products.Commands.DeleteProduct;
 using Shop.Application.Products.Commands.UpdateProduct;
 using Shop.Application.Products.Queries.GetProductDetails;
 using Shop.Application.Products.Queries.GetProductList;
+using Shop.WebApi.Inventory.Models;
 
-namespace Shop.WebApi.Orders.Controllers
+namespace Shop.WebApi.Inventory.Controllers
 {
     [Route("api/[controller]")]
     public class ProductController : BaseController

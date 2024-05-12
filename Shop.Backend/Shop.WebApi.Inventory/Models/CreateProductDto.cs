@@ -1,22 +1,18 @@
 ﻿using AutoMapper;
 using Shop.Application.Common.Mappings;
-using Shop.Application.Products.Commands.UpdateProduct;
+using Shop.Application.Products.Commands.CreateProduct;
 
-namespace Shop.WebApi.Orders.Models
+namespace Shop.WebApi.Inventory.Models
 {
-    public class UpdateProductDto : IMapWith<UpdateProductCommand>
+    public class CreateProductDto  : IMapWith<CreateProductCommand>
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }
-        public int Quantity { get; set; }
 
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<UpdateProductDto, UpdateProductCommand>()
-                .ForMember(productCommand => productCommand.Id,
-                    opt => opt.MapFrom(productDto => productDto.Id))
+            profile.CreateMap<CreateProductDto, CreateProductCommand>()
                 .ForMember(productCommand => productCommand.Name,
                     opt => opt.MapFrom(productDto => productDto.Name))
                 .ForMember(productCommand => productCommand.Description,

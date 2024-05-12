@@ -16,4 +16,8 @@
     <ProjectReference Include="..\Shop.Persistence\Shop.Persistence.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+
 </Project>

@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using Shop.Application.Interfaces;
-using Shop.Domain;
+using Shop.Domain.Entities;
 
 namespace Shop.Application.Products.Commands.CreateProduct
 {

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Shop.Application.Enums
+namespace Shop.Domain.Enums
 {
     public enum Statuses
     {

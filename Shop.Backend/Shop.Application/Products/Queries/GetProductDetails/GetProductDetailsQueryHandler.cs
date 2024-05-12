@@ -3,7 +3,7 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Shop.Application.Common.Exceptions;
 using Shop.Application.Interfaces;
-using Shop.Domain;
+using Shop.Domain.Entities;
 
 namespace Shop.Application.Products.Queries.GetProductDetails
 {

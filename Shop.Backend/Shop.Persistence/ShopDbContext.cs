@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Shop.Application.Interfaces;
-using Shop.Domain;
+using Shop.Domain.Entities;
 using Shop.Persistence.EntityTypeConfigurations;
 
 namespace Shop.Persistence

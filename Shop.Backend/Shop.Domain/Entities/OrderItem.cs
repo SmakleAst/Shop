@@ -1,4 +1,4 @@
-﻿namespace Shop.Domain
+﻿namespace Shop.Domain.Entities
 {
     public class OrderItem
     {

@@ -1,4 +1,4 @@
-﻿namespace Shop.Domain
+﻿namespace Shop.Domain.Entities
 {
     public class Product
     {
@@ -8,6 +8,6 @@
         public decimal Price { get; set; }
         public int Quantity { get; set; }
         public DateTime CreationDate { get; set; }
-        public DateTime? EditDate { get; set;}
+        public DateTime? EditDate { get; set; }
     }
 }
