@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using Asp.Versioning;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Shop.Application.Products.Commands.CreateProduct;
 using Shop.Application.Products.Commands.DeleteProduct;
@@ -7,15 +8,16 @@ using Shop.Application.Products.Queries.GetProductDetails;
 using Shop.Application.Products.Queries.GetProductList;
 using Shop.WebApi.Inventory.Models;
 
-namespace Shop.WebApi.Inventory.Controllers
+namespace Shop.WebApi.Inventory.Controllers.v1
 {
+    [ApiVersion(1, Deprecated = false)]
     [Produces("application/json")]
-    [Route("api/[controller]")]
-    public class ProductController : BaseController
+    [Route("api/v{version::apiVersion}/[controller]")]
+    public class ProductsController : BaseController
     {
         private readonly IMapper _mapper;
 
-        public ProductController(IMapper mapper) =>
+        public ProductsController(IMapper mapper) =>
             _mapper = mapper;
 
         /// <summary>
