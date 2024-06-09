@@ -1,14 +1,11 @@
-﻿using AutoMapper;
+﻿using Mapster;
 using System.Reflection;
 
 namespace Shop.Application.Common.Mappings
 {
-    public class AssemblyMappingProfile : Profile
+    public static class MapsterConfig
     {
-        public AssemblyMappingProfile(Assembly assembly) =>
-            ApplyMappingsFromAssembly(assembly);
-
-        private void ApplyMappingsFromAssembly(Assembly assembly)
+        public static void RegisterMappings(Assembly assembly)
         {
             var types = assembly.GetExportedTypes()
                 .Where(type => type.GetInterfaces()
@@ -19,7 +16,7 @@ namespace Shop.Application.Common.Mappings
             {
                 var instance = Activator.CreateInstance(type);
                 var methodInfo = type.GetMethod("Mapping");
-                methodInfo?.Invoke(instance, new object[] { this });
+                methodInfo?.Invoke(instance, new object[] { TypeAdapterConfig.GlobalSettings });
             }
         }
     }

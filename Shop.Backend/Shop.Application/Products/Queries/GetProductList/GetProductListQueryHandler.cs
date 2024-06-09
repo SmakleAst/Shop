@@ -1,5 +1,5 @@
-﻿using AutoMapper;
-using AutoMapper.QueryableExtensions;
+﻿using Mapster;
+using MapsterMapper;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Shop.Application.Interfaces;
@@ -17,7 +17,7 @@ namespace Shop.Application.Products.Queries.GetProductList
         public async Task<ProductListVm> Handle(GetProductListQuery request, CancellationToken cancellationToken)
         {
             var products = await _dbContext.Products
-                .ProjectTo<ProductLookupDto>(_mapper.ConfigurationProvider)
+                .ProjectToType<ProductLookupDto>()
                 .ToListAsync(cancellationToken);
 
             return new ProductListVm { Products = products };

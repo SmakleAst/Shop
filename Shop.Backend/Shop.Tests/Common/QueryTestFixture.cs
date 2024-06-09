@@ -15,7 +15,7 @@ namespace Shop.Tests.Common
             Context =  ShopContextFactory.Create();
             var configurationBuilder = new MapperConfiguration(cfg =>
             {
-                cfg.AddProfile(new AssemblyMappingProfile(
+                cfg.AddProfile(new MapsterConfig(
                     typeof(IShopDbContext).Assembly));
             });
             Mapper = configurationBuilder.CreateMapper();

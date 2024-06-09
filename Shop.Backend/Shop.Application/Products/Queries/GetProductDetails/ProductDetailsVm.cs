@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+﻿using Mapster;
 using Shop.Application.Common.Mappings;
 using Shop.Domain.Entities;
 
@@ -14,21 +14,15 @@ namespace Shop.Application.Products.Queries.GetProductDetails
         public DateTime CreationDate { get; set; }
         public DateTime? EditDate { get; set; }
 
-        public void Mapping(Profile profile)
+        public void Mapping(TypeAdapterConfig config)
         {
-            profile.CreateMap<Product, ProductDetailsVm>()
-                .ForMember(productVm => productVm.Name,
-                    opt => opt.MapFrom(product => product.Name))
-                .ForMember(productVm => productVm.Description,
-                    opt => opt.MapFrom(product => product.Description))
-                .ForMember(productVm => productVm.Price,
-                    opt => opt.MapFrom(product => product.Price))
-                .ForMember(productVm => productVm.Quantity,
-                    opt => opt.MapFrom(product => product.Quantity))
-                .ForMember(productVm => productVm.CreationDate,
-                    opt => opt.MapFrom(product => product.CreationDate))
-                .ForMember(productVm => productVm.EditDate,
-                    opt => opt.MapFrom(product => product.EditDate));
+            config.NewConfig<Product, ProductDetailsVm>()
+                .Map(productVm => productVm.Name, product => product.Name)
+                .Map(productVm => productVm.Description, product => product.Description)
+                .Map(productVm => productVm.Price, product => product.Price)
+                .Map(productVm => productVm.Quantity, product => product.Quantity)
+                .Map(productVm => productVm.CreationDate, product => product.CreationDate)
+                .Map(productVm => productVm.EditDate, product => product.EditDate);
         }
     }
 }

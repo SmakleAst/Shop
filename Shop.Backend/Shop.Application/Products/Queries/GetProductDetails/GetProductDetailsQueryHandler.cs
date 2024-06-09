@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+﻿using MapsterMapper;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Shop.Application.Common.Exceptions;

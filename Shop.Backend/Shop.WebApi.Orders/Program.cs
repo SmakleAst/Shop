@@ -12,11 +12,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddAutoMapper(config =>
-{
-    config.AddProfile(new AssemblyMappingProfile(Assembly.GetExecutingAssembly()));
-    config.AddProfile(new AssemblyMappingProfile(typeof(IShopDbContext).Assembly));
-});
+//builder.Services.AddAutoMapper(config =>
+//{
+//    config.AddProfile(new AssemblyMappingProfile(Assembly.GetExecutingAssembly()));
+//    config.AddProfile(new AssemblyMappingProfile(typeof(IShopDbContext).Assembly));
+//});
 
 builder.Services.AddApplication();
 builder.Services.AddPersistence(builder.Configuration);

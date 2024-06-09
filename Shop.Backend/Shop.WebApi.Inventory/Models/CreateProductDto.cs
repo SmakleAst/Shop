@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+﻿using Mapster;
 using Shop.Application.Common.Mappings;
 using Shop.Application.Products.Commands.CreateProduct;
 
@@ -10,15 +10,12 @@ namespace Shop.WebApi.Inventory.Models
         public string Description { get; set; }
         public decimal Price { get; set; }
 
-        public void Mapping(Profile profile)
+        public void Mapping(TypeAdapterConfig config)
         {
-            profile.CreateMap<CreateProductDto, CreateProductCommand>()
-                .ForMember(productCommand => productCommand.Name,
-                    opt => opt.MapFrom(productDto => productDto.Name))
-                .ForMember(productCommand => productCommand.Description,
-                    opt => opt.MapFrom(productDto => productDto.Description))
-                .ForMember(productCommand => productCommand.Price,
-                    opt => opt.MapFrom(productDto => productDto.Price));
+            config.NewConfig<CreateProductDto, CreateProductCommand>()
+                .Map(productCommand => productCommand.Name, productDto => productDto.Name)
+                .Map(productCommand => productCommand.Description, productDto => productDto.Description)
+                .Map(productCommand => productCommand.Price, productDto => productDto.Price);
         }
     }
 }

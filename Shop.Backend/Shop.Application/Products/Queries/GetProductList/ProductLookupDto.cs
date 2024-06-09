@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+﻿using Mapster;
 using Shop.Application.Common.Mappings;
 using Shop.Domain.Entities;
 
@@ -12,19 +12,14 @@ namespace Shop.Application.Products.Queries.GetProductList
         public decimal Price { get; set; }
         public int Quantity { get; set; }
 
-        public void Mapping(Profile profile)
+        public void Mapping(TypeAdapterConfig config)
         {
-            profile.CreateMap<Product, ProductLookupDto>()
-                .ForMember(productDto => productDto.Id,
-                    opt => opt.MapFrom(product => product.Id))
-                .ForMember(productDto => productDto.Name,
-                    opt => opt.MapFrom(product => product.Name))
-                .ForMember(productDto => productDto.Description,
-                    opt => opt.MapFrom(product => product.Description))
-                .ForMember(productDto => productDto.Price,
-                    opt => opt.MapFrom(product => product.Price))
-                .ForMember(productDto => productDto.Quantity,
-                    opt => opt.MapFrom(product => product.Quantity));
+            config.NewConfig<Product, ProductLookupDto>()
+                .Map(productDto => productDto.Id, product => product.Id)
+                .Map(productDto => productDto.Name, product => product.Name)
+                .Map(productDto => productDto.Description, product => product.Description)
+                .Map(productDto => productDto.Price, product => product.Price)
+                .Map(productDto => productDto.Quantity, product => product.Quantity);
         }
     }
 }

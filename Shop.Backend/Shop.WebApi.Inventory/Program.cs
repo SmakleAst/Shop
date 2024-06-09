@@ -9,6 +9,8 @@ using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Shop.WebApi.Inventory;
 using Asp.Versioning.ApiExplorer;
+using Mapster;
+using MapsterMapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,12 +36,6 @@ builder.Services.AddApiVersioning(option =>
 });
 
 builder.Services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
-
-builder.Services.AddAutoMapper(config =>
-{
-    config.AddProfile(new AssemblyMappingProfile(Assembly.GetExecutingAssembly()));
-    config.AddProfile(new AssemblyMappingProfile(typeof(IShopDbContext).Assembly));
-});
 
 builder.Services.AddApplication();
 builder.Services.AddPersistence(builder.Configuration);
