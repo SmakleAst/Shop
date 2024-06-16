@@ -92,7 +92,7 @@ namespace Shop.WebApi.Inventory.Controllers.v1
 
             var productId = await Mediator.Send(command);
 
-            return Ok(productId);
+            return CreatedAtAction(nameof(Create), productId);
         }
 
         /// <summary>
