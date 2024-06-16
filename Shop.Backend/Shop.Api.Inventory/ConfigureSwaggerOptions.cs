@@ -38,31 +38,31 @@ namespace Shop.WebApi.Inventory
                         }
                     });
 
-                //options.AddSecurityDefinition($"AuthToken {apiVersion}",
-                //    new OpenApiSecurityScheme
-                //    {
-                //        In = ParameterLocation.Header,
-                //        Type = SecuritySchemeType.Http,
-                //        BearerFormat = "JWT",
-                //        Scheme = "bearer",
-                //        Name = "Authorization",
-                //        Description = "Authorization token",
-                //    });
+                options.AddSecurityDefinition($"AuthToken {apiVersion}",
+                    new OpenApiSecurityScheme
+                    {
+                        In = ParameterLocation.Header,
+                        Type = SecuritySchemeType.Http,
+                        BearerFormat = "JWT",
+                        Scheme = "bearer",
+                        Name = "Authorization",
+                        Description = "Authorization token",
+                    });
 
-                //options.AddSecurityRequirement(new OpenApiSecurityRequirement
-                //{
-                //    {
-                //        new OpenApiSecurityScheme
-                //        {
-                //            Reference = new OpenApiReference
-                //            {
-                //                Type = ReferenceType.SecurityScheme,
-                //                Id = $"AuthToken {apiVersion}",
-                //            }
-                //        },
-                //        new string[] { }
-                //    }
-                //});
+                options.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = $"AuthToken {apiVersion}",
+                            }
+                        },
+                        new string[] { }
+                    }
+                });
 
                 options.CustomOperationIds(apiDescription =>
                     apiDescription.TryGetMethodInfo(out MethodInfo methodInfo)
