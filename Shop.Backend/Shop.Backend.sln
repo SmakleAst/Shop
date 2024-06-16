@@ -19,9 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop.Persistence", "Shop.Pe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop.WebApi.Orders", "Shop.WebApi.Orders\Shop.WebApi.Orders.csproj", "{1FAABCD7-6891-442B-8D47-C320BDF2E268}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop.WebApi.Inventory", "Shop.WebApi.Inventory\Shop.WebApi.Inventory.csproj", "{ACE524C3-9B80-46EB-92F2-4384DA1C6656}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop.Api.Inventory", "Shop.WebApi.Inventory\Shop.Api.Inventory.csproj", "{ACE524C3-9B80-46EB-92F2-4384DA1C6656}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shop.Tests", "Shop.Tests\Shop.Tests.csproj", "{BBF909FD-B198-4CA3-B2F4-41C51A4A28A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop.Tests", "Shop.Tests\Shop.Tests.csproj", "{BBF909FD-B198-4CA3-B2F4-41C51A4A28A0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
