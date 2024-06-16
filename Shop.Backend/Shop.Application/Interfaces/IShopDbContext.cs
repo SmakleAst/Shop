@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Shop.Domain.Entities;
+using Shop.Domain.Entities.Shop;
 
 namespace Shop.Application.Interfaces
 {

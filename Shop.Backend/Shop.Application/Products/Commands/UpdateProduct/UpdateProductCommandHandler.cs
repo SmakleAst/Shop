@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Shop.Application.Common.Exceptions;
 using Shop.Application.Interfaces;
-using Shop.Domain.Entities;
+using Shop.Domain.Entities.Shop;
 
 namespace Shop.Application.Products.Commands.UpdateProduct
 {

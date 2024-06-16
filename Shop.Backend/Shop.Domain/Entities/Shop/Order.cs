@@ -1,6 +1,6 @@
 ﻿using Shop.Domain.Enums;
 
-namespace Shop.Domain.Entities
+namespace Shop.Domain.Entities.Shop
 {
     public class Order
     {

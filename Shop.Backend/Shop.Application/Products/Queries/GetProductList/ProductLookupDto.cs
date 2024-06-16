@@ -1,6 +1,6 @@
 ﻿using Mapster;
 using Shop.Application.Common.Mappings;
-using Shop.Domain.Entities;
+using Shop.Domain.Entities.Shop;
 
 namespace Shop.Application.Products.Queries.GetProductList
 {
