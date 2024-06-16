@@ -1,5 +1,6 @@
 ﻿using Asp.Versioning;
 using MapsterMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Shop.Application.Products.Commands.CreateProduct;
 using Shop.Application.Products.Commands.DeleteProduct;
@@ -29,8 +30,11 @@ namespace Shop.WebApi.Inventory.Controllers.v1
         /// </remarks>
         /// <returns>Returns ProductListVm</returns>
         /// <response code="200">Success</response>
+        /// <response code="401">If unauthorized</response>
         [HttpGet]
+        [Authorize]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public async Task<ActionResult<ProductListVm>> GetAll()
         {
             var query = new GetProductListQuery
@@ -53,9 +57,12 @@ namespace Shop.WebApi.Inventory.Controllers.v1
         /// <param name="id">Product id (int)</param>
         /// <returns>Returns ProductDetailsVm</returns>
         /// <response code="200">Success</response>
+        /// <response code="401">If unauthorized</response>
         /// <response code="404">If the product not found</response>
         [HttpGet("{id}")]
+        [Authorize]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<ProductDetailsVm>> Get(int id)
         {
@@ -84,8 +91,11 @@ namespace Shop.WebApi.Inventory.Controllers.v1
         /// <param name="createProductDto">CreateProductDto object</param>
         /// <returns>Returns id (int) created product</returns>
         /// <response code="201">Success</response>
+        /// <response code="401">If unauthorized</response>
         [HttpPost]
+        [Authorize]
         [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public async Task<ActionResult<int>> Create([FromBody] CreateProductDto createProductDto)
         {
             var command = _mapper.Map<CreateProductCommand>(createProductDto);
@@ -112,9 +122,12 @@ namespace Shop.WebApi.Inventory.Controllers.v1
         /// <param name="updateProductDto">UpdateProductDto object</param>
         /// <returns>Returns NoContent</returns>
         /// <response code="204">Success</response>
+        /// <response code="401">If unauthorized</response>
         /// <response code="404">If the product not found</response>
         [HttpPut]
+        [Authorize]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Update([FromBody] UpdateProductDto updateProductDto)
         {
@@ -135,9 +148,12 @@ namespace Shop.WebApi.Inventory.Controllers.v1
         /// <param name="id">Product id (int)</param>
         /// <returns>Returns NoContent</returns>
         /// <response code="204">Success</response>
+        /// <response code="401">If unauthorized</response>
         /// <response code="404">If the product not found</response>
         [HttpDelete]
+        [Authorize]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Delete(int id)
         {
